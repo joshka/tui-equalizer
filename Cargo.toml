@@ -1,0 +1,15 @@
+[package]
+name = "tui-equalizer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+derive_builder = "0.20.1"
+ratatui = { version = "0.28.1", default-features = false }
+
+[dev-dependencies]
+color-eyre = "0.6.3"
+crossterm = "0.28.1"
+itertools = "0.13.0"
+rand = "0.8.5"
+ratatui = "0.28.1"
