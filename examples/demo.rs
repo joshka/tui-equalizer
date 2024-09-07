@@ -21,7 +21,7 @@ fn run(mut terminal: DefaultTerminal) -> Result<()> {
     let mut next_bands = random_bands(width);
     let mut last_time = std::time::Instant::now();
     // Update the bands every 500ms
-    const UPDATE_INTERVAL: Duration = Duration::from_millis(1500);
+    const UPDATE_INTERVAL: Duration = Duration::from_millis(500);
     loop {
         let percent = last_time.elapsed().as_secs_f64() / UPDATE_INTERVAL.as_secs_f64();
         let interpolated = interpolate(&current_bands, &next_bands, percent);
@@ -30,7 +30,7 @@ fn run(mut terminal: DefaultTerminal) -> Result<()> {
             current_bands = interpolated.clone();
             next_bands = random_bands(width);
         }
-        terminal.draw(|frame| draw(frame, &interpolated))?;
+        terminal.draw(|frame| draw(frame, &current_bands, &interpolated))?;
         if handle_input()? == Command::Quit {
             break Ok(());
         }
@@ -54,12 +54,22 @@ fn random_bands(count: u16) -> Vec<Band> {
         .collect_vec()
 }
 
-fn draw(frame: &mut Frame, bands: &[Band]) {
+fn draw(frame: &mut Frame, current: &[Band], bands: &[Band]) {
     let size = frame.area();
-    let equalizer = Equalizer {
-        bands: bands.to_vec(),
-    };
-    frame.render_widget(equalizer, size);
+    frame.render_widget(
+        Equalizer {
+            bands: current.to_vec(),
+            brightness: 0.15,
+        },
+        size,
+    );
+    frame.render_widget(
+        Equalizer {
+            bands: bands.to_vec(),
+            brightness: 1.0,
+        },
+        size,
+    );
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

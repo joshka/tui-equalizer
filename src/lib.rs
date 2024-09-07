@@ -29,6 +29,7 @@ use ratatui::widgets::Widget;
 pub struct Equalizer {
     /// A vector of `Band` structs representing each frequency band.
     pub bands: Vec<Band>,
+    pub brightness: f64,
 }
 
 /// A struct representing a single frequency band in the equalizer.
@@ -48,31 +49,32 @@ impl Widget for Equalizer {
     fn render(self, area: Rect, buf: &mut Buffer) {
         let areas = Layout::horizontal(vec![Constraint::Length(2); self.bands.len()]).split(area);
         for (band, area) in zip(self.bands, areas.iter()) {
-            band.render(*area, buf);
+            band.render(*area, buf, self.brightness);
         }
     }
 }
 
-impl Widget for Band {
-    fn render(self, area: Rect, buf: &mut Buffer) {
+impl Band {
+    fn render(self, area: Rect, buf: &mut Buffer, brightness: f64) {
         let value = self.value.clamp(0.0, 1.0);
         let height = (value * area.height as f64) as u16;
 
         // Calculate the color gradient step
-        let color_step = 1.0 / area.height as f32;
+        let color_step = 1.0 / area.height as f64;
 
         // Iterate over each segment and render it with the corresponding color
         for i in 0..height {
             // Green to Yellow to Red gradient
-            let v = i as f32 * color_step;
+            let v = i as f64 * color_step;
             let vv = 1.0 - v;
-            let r = if v < 0.5 { v * 2.0 * 255.0 } else { 255.0 } as u8;
-            let g = if v < 0.5 { 255.0 } else { vv * 2.0 * 255.0 } as u8;
+            let br = brightness.clamp(0.0, 1.0) * 255.0;
+            let r = if v < 0.5 { v * 2.0 * br } else { br } as u8;
+            let g = if v < 0.5 { br } else { vv * 2.0 * br } as u8;
             let b = 0;
             let color = Color::Rgb(r, g, b);
             buf[(area.left(), area.bottom().saturating_sub(i + 1))]
                 .set_fg(color)
-                .set_symbol("⯀");
+                .set_symbol(ratatui::symbols::bar::HALF);
         }
     }
 }
