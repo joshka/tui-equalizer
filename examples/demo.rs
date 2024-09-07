@@ -21,7 +21,7 @@ fn run(mut terminal: DefaultTerminal) -> Result<()> {
     let mut next_bands = random_bands(width);
     let mut last_time = std::time::Instant::now();
     // Update the bands every 500ms
-    const UPDATE_INTERVAL: Duration = Duration::from_millis(500);
+    const UPDATE_INTERVAL: Duration = Duration::from_millis(1500);
     loop {
         let percent = last_time.elapsed().as_secs_f64() / UPDATE_INTERVAL.as_secs_f64();
         let interpolated = interpolate(&current_bands, &next_bands, percent);
