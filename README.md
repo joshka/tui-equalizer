@@ -1,8 +1,24 @@
 # tui-equalizer
 
-Inspired by <https://github.com/ratatui/ratatui/issues/1325#issuecomment-2335095486>
+<!-- cargo-rdme start -->
 
-## Usage
+An equalizer widget for [Ratatui] with multiple frequency bands.
+
+The equalizer is a vertical bar chart where each band represents a frequency range. Each band
+can display a value from 0.0 to 1.0, where 1.0 is the maximum value.
+
+![Made with VHS](https://vhs.charm.sh/vhs-FiRQkkDAUEnH2BrPbUx5i.gif)
+
+This demo can be found in the examples folder in the git repo.
+
+```shell
+cargo run --example demo
+```
+
+Inspired by [a comment in the ratatui
+repo](https://github.com/ratatui/ratatui/issues/1325#issuecomment-2335095486).
+
+## Example
 
 ```rust
 use tui_equalizer::{Band, Equalizer};
@@ -17,10 +33,6 @@ let equalizer = Equalizer {
 equalizer.render(area, buf);
 ```
 
-## Demo
+[Ratatui]: https://crates.io/crates/ratatui
 
-```shell
-cargo run --example demo
-```
-
-![Made with VHS](https://vhs.charm.sh/vhs-732McVor5Mxwa0IMDh7uP6.gif)
+<!-- cargo-rdme end -->

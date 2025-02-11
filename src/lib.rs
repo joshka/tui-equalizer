@@ -1,11 +1,46 @@
+//! An equalizer widget for [Ratatui] with multiple frequency bands.
+//!
+//! The equalizer is a vertical bar chart where each band represents a frequency range. Each band
+//! can display a value from 0.0 to 1.0, where 1.0 is the maximum value.
+//!
+//! ![Made with VHS](https://vhs.charm.sh/vhs-FiRQkkDAUEnH2BrPbUx5i.gif)
+//!
+//! This demo can be found in the examples folder in the git repo.
+//!
+//! ```shell
+//! cargo run --example demo
+//! ```
+//!
+//! Inspired by [a comment in the ratatui
+//! repo](https://github.com/ratatui/ratatui/issues/1325#issuecomment-2335095486).
+//!
+//! # Example
+//!
+//! ```rust
+//! use tui_equalizer::{Band, Equalizer};
+//!
+//! let equalizer = Equalizer {
+//!     bands: vec![
+//!         Band::from(0.5),
+//!         Band::from(0.8),
+//!         Band::from(0.3),
+//!     ],
+//! };
+//! equalizer.render(area, buf);
+//! ```
+//!
+//! [Ratatui]: https://crates.io/crates/ratatui
+
 use std::iter::zip;
 
-use ratatui::buffer::Buffer;
-use ratatui::layout::{Constraint, Layout, Rect};
-use ratatui::style::Color;
-use ratatui::widgets::Widget;
+use ratatui::{
+    buffer::Buffer,
+    layout::{Constraint, Layout, Rect},
+    style::Color,
+    widgets::Widget,
+};
 
-/// A struct representing an equalizer with multiple frequency bands.
+/// An equalizer widget with multiple frequency bands.
 ///
 /// The equalizer is a vertical bar chart where each band represents a frequency range.
 ///
