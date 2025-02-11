@@ -3,6 +3,7 @@ name = "tui-equalizer"
 description = "An equalizer widget for Ratatui with multiple frequency bands."
 version = "0.1.0"
 edition = "2021"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 derive_builder = "0.20"
