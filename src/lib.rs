@@ -81,7 +81,7 @@ use ratatui::{
 /// };
 /// equalizer.render(area, &mut buf);
 /// ```
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Equalizer {
     /// A vector of `Band` structs representing each frequency band.
     pub bands: Vec<Band>,
