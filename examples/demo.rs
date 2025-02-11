@@ -3,7 +3,7 @@ use std::time::Duration;
 use color_eyre::Result;
 use crossterm::event::{self, Event, KeyCode, KeyEventKind};
 use itertools::Itertools;
-use rand::{thread_rng, Rng};
+use rand::{rng, Rng};
 use ratatui::{DefaultTerminal, Frame};
 use tui_equalizer::{Band, Equalizer};
 
@@ -50,7 +50,7 @@ fn interpolate(current: &Vec<Band>, next: &Vec<Band>, percent: f64) -> Vec<Band>
 
 fn random_bands(count: u16) -> Vec<Band> {
     (0..count / 2)
-        .map(|_| Band::from(thread_rng().gen_range(0.1..1.0)))
+        .map(|_| Band::from(rng().random_range(0.1..1.0)))
         .collect_vec()
 }
 
