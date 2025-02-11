@@ -17,6 +17,9 @@
 //! # Example
 //!
 //! ```rust
+//! # use ratatui::{widgets::Widget, layout::Rect, buffer::Buffer};
+//! # let area = Rect::default();
+//! # let mut buf = Buffer::empty(area);
 //! use tui_equalizer::{Band, Equalizer};
 //!
 //! let equalizer = Equalizer {
@@ -25,8 +28,9 @@
 //!         Band::from(0.8),
 //!         Band::from(0.3),
 //!     ],
+//!     brightness: 1.0,
 //! };
-//! equalizer.render(area, buf);
+//! equalizer.render(area, &mut buf);
 //! ```
 //!
 //! # License
@@ -62,18 +66,20 @@ use ratatui::{
 /// # Example
 ///
 /// ```
-/// use tui_equalizer::{Band, Equalizer};
-///
+/// # use ratatui::widgets::Widget;
 /// # let area = ratatui::layout::Rect::default();
 /// # let mut buf = ratatui::buffer::Buffer::empty(area);
+/// use tui_equalizer::{Band, Equalizer};
+///
 /// let equalizer = Equalizer {
 ///     bands: vec![
 ///         Band::from(0.5),
 ///         Band::from(0.8),
 ///         Band::from(0.3),
 ///     ],
+///     brightness: 1.0,
 /// };
-/// equalizer.render(area, buf);
+/// equalizer.render(area, &mut buf);
 /// ```
 #[derive(Debug)]
 pub struct Equalizer {
