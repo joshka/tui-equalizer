@@ -29,8 +29,9 @@ let equalizer = Equalizer {
         Band::from(0.8),
         Band::from(0.3),
     ],
+    brightness: 1.0,
 };
-equalizer.render(area, buf);
+equalizer.render(area, &mut buf);
 ```
 
 ## License
