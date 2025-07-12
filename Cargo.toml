@@ -1,7 +1,7 @@
 [package]
 name = "tui-equalizer"
 description = "An equalizer widget for Ratatui with multiple frequency bands."
-version = "0.1.2"
+version = "0.2.0-alpha"
 rust-version = "1.85.0"
 edition = "2024"
 license = "MIT OR Apache-2.0"
