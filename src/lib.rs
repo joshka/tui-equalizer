@@ -52,10 +52,11 @@
 
 use std::iter::zip;
 
-use ratatui::{
+use ratatui_core::{
     buffer::Buffer,
     layout::{Constraint, Layout, Rect},
     style::Color,
+    symbols,
     widgets::Widget,
 };
 
@@ -130,7 +131,7 @@ impl Band {
             let color = Color::Rgb(r, g, b);
             buf[(area.left(), area.bottom().saturating_sub(i + 1))]
                 .set_fg(color)
-                .set_symbol(ratatui::symbols::bar::HALF);
+                .set_symbol(symbols::bar::HALF);
         }
     }
 }
