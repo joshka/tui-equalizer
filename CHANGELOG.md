@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.3](https://github.com/joshka/tui-equalizer/compare/v0.1.2...v0.1.3) - 2025-07-12
+## [0.2.0-alpha](https://github.com/joshka/tui-equalizer/compare/v0.1.2...v0.2.0-alpha) - 2025-07-12
 
 ### Other
 
