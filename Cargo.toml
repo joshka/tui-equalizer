@@ -10,7 +10,7 @@ documentation = "https://docs.rs/tui-equalizer"
 
 [dependencies]
 derive_builder = "0.20"
-ratatui-core = { version = "0.1.0-alpha", default-features = false }
+ratatui-core = { version = "0.1.0-beta.0", default-features = false }
 
 [dev-dependencies]
 color-eyre = "0.6"
