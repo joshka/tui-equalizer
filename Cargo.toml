@@ -16,5 +16,5 @@ ratatui-core = { version = "0.1.0-alpha", default-features = false }
 color-eyre = "0.6"
 crossterm = "0.29"
 itertools = "0.14"
-rand = "0.9"
+rand = "0.10"
 ratatui = "0.30.0-alpha"
