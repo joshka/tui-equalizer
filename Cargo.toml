@@ -2,7 +2,7 @@
 name = "tui-equalizer"
 description = "An equalizer widget for Ratatui with multiple frequency bands."
 version = "0.2.0-alpha"
-rust-version = "1.85.0"
+rust-version = "1.88.0"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/joshka/tui-equalizer"
@@ -10,11 +10,11 @@ documentation = "https://docs.rs/tui-equalizer"
 
 [dependencies]
 derive_builder = "0.20"
-ratatui-core = { version = "0.1.0-alpha.6", default-features = false }
+ratatui-core = { version = "0.1", default-features = false }
 
 [dev-dependencies]
 color-eyre = "0.6"
 crossterm = "0.29"
 itertools = "0.14"
 rand = "0.10"
-ratatui = "0.30.0-alpha.5"
+ratatui = "0.30"
