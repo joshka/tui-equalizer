@@ -48,7 +48,6 @@ at your option.
 [LICENSE-APACHE]: ./LICENSE-APACHE
 [LICENSE-MIT]: ./LICENSE-MIT
 
-
 [Ratatui]: https://crates.io/crates/ratatui
 
 <!-- cargo-rdme end -->
