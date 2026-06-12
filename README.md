@@ -1,5 +1,10 @@
 # tui-equalizer
 
+> [!IMPORTANT]
+> This repository has moved to
+> [`ratatui/tui-widgets`](https://github.com/ratatui/tui-widgets/tree/main/tui-equalizer).
+> Please open issues and pull requests there.
+
 <!-- cargo-rdme start -->
 
 An equalizer widget for [Ratatui] with multiple frequency bands.
